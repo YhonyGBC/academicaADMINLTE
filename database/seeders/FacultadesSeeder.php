@@ -16,7 +16,7 @@ class FacultadesSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    { 
         $datos =[
             [
                 'codFacultad' => '10',

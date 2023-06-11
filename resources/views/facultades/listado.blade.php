@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>Facultades</h1>
 @stop
-
+ 
 @section('content')
     <p>Listado de Facultades</p>
     <a class="btn btn-success" href="/facultades/registrar">Adicionar</a>

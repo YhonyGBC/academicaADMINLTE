@@ -10,11 +10,10 @@ class Facultades extends Controller
 {
     public function index(){
         $facultades = DB::table('facultades')->get();
-        return view('facultades.listado', 
-        ['facultades' =>$facultades]);
+        return view('facultades.listado', ['facultades' =>$facultades]);
     }
-
-    public function form_registro(){
+ 
+    public function form_registro(){ 
         return view('facultades.form_registro');
     }
 
@@ -31,6 +30,9 @@ class Facultades extends Controller
         $facultad->delete();
         return redirect()->route('listadoFac');
     }
- 
+
+    public function editar($id){
+        
+    }
     
 }
