@@ -31,8 +31,35 @@ class Facultades extends Controller
         return redirect()->route('listadoFac');
     }
 
-    public function editar($id){
+    public function form_edicion($codFacultad){
+        $facultad = Facultad::where('codFacultad', $codFacultad)->first();
+
+        if (!$facultad) {
+            return redirect()->route('listadoFac');
+        }
         
+        return view('facultades.form_edicion', compact('facultad'));
+    }
+
+    public function editar(Request $r, $codFacultad){
+        $facultad = Facultad::where('codFacultad', $codFacultad)->first();
+        
+        if (!$facultad) {
+            return redirect()->route('listadoFac');
+        }
+        
+        // Validar los datos del formulario
+        $r->validate([
+            'codigoFacultad' => 'required',
+            'nombreFacultad' => 'required',
+        ]);
+        
+        // Actualizar los datos de la facultad
+        $facultad->codFacultad = $r->input('codigoFacultad');
+        $facultad->nomFacultad = $r->input('nombreFacultad');
+        $facultad->save();
+        
+        return redirect()->route('listadoFac');
     }
     
 }

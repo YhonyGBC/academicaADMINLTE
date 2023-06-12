@@ -4,6 +4,9 @@
  
 @section('content_header')
     <h1>Registro de Facultades</h1>
+@stop
+
+@section('content')
     <form action= "{{url('facultades/registrar')}}" method= "POST" >
         @csrf
         <div class="mb-3">
@@ -18,13 +21,6 @@
 
         <button type="submit" class="btn btn-success">Registrar</button>
     </form>
-
-
-@stop
-
-@section('content')
-   
-
 @stop
 
 @section('css')
