@@ -32,12 +32,10 @@ Route::get('/facultades/eliminar/{id}', [Facultades::class, 'eliminar'])->name('
 Route::get('/facultades/editar/{codFacultad}', [Facultades::class, 'form_edicion']);
 Route::put('/facultades/editar/{codFacultad}', [Facultades::class, 'editar']);
 
-
-
-
-
-
-Route::get('/programas/listado', [Programas::class, 'index']);
+Route::get('/programas/listado', [Programas::class, 'index'])->name('listadoProg');
+Route::get('/programas/registrar', [Programas::class, 'form_registro']);
+Route::post('/programas/registrar', [Programas::class, 'registrar']);
+Route::get('/programas/eliminar/{id}', [Programas::class, 'eliminar'])->name('eliminaProg');
 
 Route::get('/estudiantes/listado', [Estudiantes::class, 'index']);
 
