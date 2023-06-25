@@ -39,9 +39,15 @@ Route::put('/facultades/editar/{codFacultad}', [Facultades::class, 'editar']);
 
 Route::get('/programas/listado', [Programas::class, 'index']);
 
-Route::get('/estudiantes/listado', [Estudiantes::class, 'index']);
+Route::get('/estudiantes/listado', [Estudiantes::class, 'index'])->name('listadoEst');
+Route::get('/estudiantes/registrar', [Estudiantes::class, 'form_registro']);
+Route::post('/estudiantes/registrar', [Estudiantes::class, 'registrar']);
+Route::get('/estudiantes/eliminar/{id}', [Estudiantes::class, 'eliminar'])->name('eliminaEst');
 
-Route::get('/profesores/listado', [Profesores::class, 'index']);
+Route::get('/profesores/listado', [Profesores::class, 'index'])->name('listadoProf');
+Route::get('/profesores/registrar', [Profesores::class, 'form_registro']);
+Route::post('/profesores/registrar', [Profesores::class, 'registrar']);
+Route::get('/profesores/eliminar/{id}', [Profesores::class, 'eliminar'])->name('eliminaProf');
 
 Route::get('/regnotas/listado', [Calificaciones::class, 'index']);
 
